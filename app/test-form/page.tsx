@@ -1,25 +1,25 @@
 // app/test-form/page.tsx
-"use client"
+"use client";
 
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
+} from "@/components/ui/select";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "@/components/ui/card";
 import {
   Form,
   FormControl,
@@ -28,23 +28,20 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form"
-import { Separator } from "@/components/ui/separator"
-import { toast } from "sonner"
+} from "@/components/ui/form";
+import { Separator } from "@/components/ui/separator";
+import { toast } from "sonner";
 import {
   loginSchema,
   registerSchema,
   type LoginInput,
   type RegisterInput,
-} from "@/lib/validations/auth"
-import {
-  rsvpSchema,
-  type RSVPInput,
-} from "@/lib/validations/rsvp"
+} from "@/lib/validations/auth";
+import { rsvpSchema, type RSVPInput } from "@/lib/validations/rsvp";
 import {
   createInvitationSchema,
   type CreateInvitationInput,
-} from "@/lib/validations/invitation"
+} from "@/lib/validations/invitation";
 
 export default function TestFormPage() {
   // ==================== LOGIN FORM ====================
@@ -54,13 +51,13 @@ export default function TestFormPage() {
       email: "",
       password: "",
     },
-  })
+  });
 
   function onLoginSubmit(data: LoginInput) {
     toast.success("Login berhasil!", {
       description: `Email: ${data.email}`,
-    })
-    console.log("Login data:", data)
+    });
+    console.log("Login data:", data);
   }
 
   // ==================== REGISTER FORM ====================
@@ -72,13 +69,13 @@ export default function TestFormPage() {
       password: "",
       confirmPassword: "",
     },
-  })
+  });
 
   function onRegisterSubmit(data: RegisterInput) {
     toast.success("Register berhasil!", {
       description: `Nama: ${data.name}`,
-    })
-    console.log("Register data:", data)
+    });
+    console.log("Register data:", data);
   }
 
   // ==================== RSVP FORM ====================
@@ -90,13 +87,13 @@ export default function TestFormPage() {
       guestCount: 1,
       message: "",
     },
-  })
+  });
 
   function onRsvpSubmit(data: RSVPInput) {
     toast.success("RSVP berhasil!", {
       description: `${data.guestName} - ${data.status}`,
-    })
-    console.log("RSVP data:", data)
+    });
+    console.log("RSVP data:", data);
   }
 
   // ==================== INVITATION FORM ====================
@@ -117,22 +114,20 @@ export default function TestFormPage() {
         language: "id",
       },
     },
-  })
+  });
 
   function onInvitationSubmit(data: CreateInvitationInput) {
     toast.success("Undangan berhasil dibuat!", {
       description: `${data.content.groomName} & ${data.content.brideName}`,
-    })
-    console.log("Invitation data:", data)
+    });
+    console.log("Invitation data:", data);
   }
 
   return (
     <div className="container mx-auto p-8 space-y-8">
       <div>
         <h1 className="text-3xl font-bold mb-2">Form & Validasi Test</h1>
-        <p className="text-muted-foreground">
-          Test React Hook Form + Zod
-        </p>
+        <p className="text-muted-foreground">Test React Hook Form + Zod</p>
       </div>
 
       <Separator />
@@ -171,7 +166,11 @@ export default function TestFormPage() {
                     <FormItem>
                       <FormLabel>Password</FormLabel>
                       <FormControl>
-                        <Input type="password" placeholder="••••••••" {...field} />
+                        <Input
+                          type="password"
+                          placeholder="••••••••"
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -233,10 +232,15 @@ export default function TestFormPage() {
                     <FormItem>
                       <FormLabel>Password</FormLabel>
                       <FormControl>
-                        <Input type="password" placeholder="••••••••" {...field} />
+                        <Input
+                          type="password"
+                          placeholder="••••••••"
+                          {...field}
+                        />
                       </FormControl>
                       <FormDescription>
-                        Minimal 8 karakter, mengandung huruf besar, kecil, & angka
+                        Minimal 8 karakter, mengandung huruf besar, kecil, &
+                        angka
                       </FormDescription>
                       <FormMessage />
                     </FormItem>
@@ -250,7 +254,11 @@ export default function TestFormPage() {
                     <FormItem>
                       <FormLabel>Konfirmasi Password</FormLabel>
                       <FormControl>
-                        <Input type="password" placeholder="••••••••" {...field} />
+                        <Input
+                          type="password"
+                          placeholder="••••••••"
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -308,7 +316,9 @@ export default function TestFormPage() {
                         </FormControl>
                         <SelectContent>
                           <SelectItem value="attending">Hadir</SelectItem>
-                          <SelectItem value="not-attending">Tidak Hadir</SelectItem>
+                          <SelectItem value="not-attending">
+                            Tidak Hadir
+                          </SelectItem>
                           <SelectItem value="maybe">Mungkin</SelectItem>
                         </SelectContent>
                       </Select>
@@ -401,9 +411,15 @@ export default function TestFormPage() {
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="jawa-classic">Jawa Klasik</SelectItem>
-                          <SelectItem value="sunda-mega">Sunda Mega Mendung</SelectItem>
-                          <SelectItem value="betawi-ondel">Betawi Ondel-ondel</SelectItem>
+                          <SelectItem value="jawa-classic">
+                            Jawa Klasik
+                          </SelectItem>
+                          <SelectItem value="sunda-mega">
+                            Sunda Mega Mendung
+                          </SelectItem>
+                          <SelectItem value="betawi-ondel">
+                            Betawi Ondel-ondel
+                          </SelectItem>
                         </SelectContent>
                       </Select>
                       <FormMessage />
@@ -462,7 +478,10 @@ export default function TestFormPage() {
                     <FormItem>
                       <FormLabel>Lokasi</FormLabel>
                       <FormControl>
-                        <Input placeholder="Gedung Serbaguna Jakarta" {...field} />
+                        <Input
+                          placeholder="Gedung Serbaguna Jakarta"
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -478,5 +497,5 @@ export default function TestFormPage() {
         </Card>
       </div>
     </div>
-  )
+  );
 }

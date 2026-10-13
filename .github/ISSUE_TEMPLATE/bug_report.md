@@ -1,18 +1,18 @@
 ---
 name: 🐛 Bug Report
 about: Laporkan bug yang ditemukan
-title: '[BUG] '
+title: "[BUG] "
 labels: bug
-assignees: ''
+assignees: ""
 ---
 
 ## 🐛 Deskripsi Bug
 
 ## 🔄 Cara Reproduce
 
-1. 
-2. 
-3. 
+1.
+2.
+3.
 
 ## ✅ Expected Behavior
 

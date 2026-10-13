@@ -11,6 +11,6 @@ export const siteConfig = {
     instagram: "https://instagram.com/anjardigital",
     github: "https://github.com/anjarfals-07/anjardigital",
   },
-}
+};
 
-export type SiteConfig = typeof siteConfig
+export type SiteConfig = typeof siteConfig;

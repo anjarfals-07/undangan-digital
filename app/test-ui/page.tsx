@@ -1,9 +1,9 @@
 // app/test-ui/page.tsx
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import {
   Card,
   CardContent,
@@ -11,16 +11,16 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Switch } from "@/components/ui/switch"
-import { Separator } from "@/components/ui/separator"
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Switch } from "@/components/ui/switch";
+import { Separator } from "@/components/ui/separator";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/ui/tooltip"
+} from "@/components/ui/tooltip";
 import {
   Dialog,
   DialogContent,
@@ -28,23 +28,18 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/components/ui/tabs"
+} from "@/components/ui/dialog";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { Skeleton } from "@/components/ui/skeleton"
-import { toast } from "sonner"
-import { Heart, Calendar, MapPin, Music } from "lucide-react"
+} from "@/components/ui/select";
+import { Skeleton } from "@/components/ui/skeleton";
+import { toast } from "sonner";
+import { Heart, Calendar, MapPin, Music } from "lucide-react";
 
 export default function TestUIPage() {
   return (
@@ -221,7 +216,7 @@ export default function TestUIPage() {
 
       <Separator />
 
-           {/* ==================== TOOLTIP ==================== */}
+      {/* ==================== TOOLTIP ==================== */}
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold">Tooltip</h2>
         <div className="flex gap-3">
@@ -270,7 +265,7 @@ export default function TestUIPage() {
           </Tooltip>
         </div>
       </section>
-      
+
       <Separator />
 
       {/* ==================== DIALOG ==================== */}
@@ -389,5 +384,5 @@ export default function TestUIPage() {
         </div>
       </section>
     </div>
-  )
+  );
 }
