@@ -106,7 +106,8 @@ export type SectionInstance = {
   type: SectionType
   enabled: boolean
   order: number
-  config: Record<string, any>
+  // ✅ SESUDAH
+  config: Record<string, unknown>
 }
 
 // ==================== CULTURAL ASSETS ====================
