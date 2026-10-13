@@ -19,8 +19,6 @@ export const metadata: Metadata = {
     "undangan digital",
     "undangan pernikahan",
     "undangan adat",
-    "undangan jawa",
-    "undangan sunda",
     "anjardigital",
   ],
   authors: [{ name: "Muhammad Anjar" }],
