@@ -1,16 +1,16 @@
 // app/test-state/page.tsx
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
-import { Badge } from "@/components/ui/badge"
-import { useAuthStore } from "@/stores/auth-store"
-import { useEditorStore } from "@/stores/editor-store"
-import { toast } from "sonner"
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { Badge } from "@/components/ui/badge";
+import { useAuthStore } from "@/stores/auth-store";
+import { useEditorStore } from "@/stores/editor-store";
+import { toast } from "sonner";
 
 export default function TestStatePage() {
-  const { user, isAuthenticated, setUser, logout } = useAuthStore()
+  const { user, isAuthenticated, setUser, logout } = useAuthStore();
   const {
     selectedSectionId,
     previewMode,
@@ -21,7 +21,7 @@ export default function TestStatePage() {
     setSections,
     setSelectedSection,
     reset,
-  } = useEditorStore()
+  } = useEditorStore();
 
   return (
     <div className="container mx-auto p-8 space-y-8">
@@ -64,8 +64,8 @@ export default function TestStatePage() {
                     role: "user",
                     plan: "free",
                     createdAt: new Date(),
-                  })
-                  toast.success("User di-set!")
+                  });
+                  toast.success("User di-set!");
                 }}
               >
                 Login (Mock)
@@ -73,8 +73,8 @@ export default function TestStatePage() {
               <Button
                 variant="destructive"
                 onClick={() => {
-                  logout()
-                  toast.info("Logout!")
+                  logout();
+                  toast.info("Logout!");
                 }}
               >
                 Logout
@@ -156,7 +156,9 @@ export default function TestStatePage() {
                   </Badge>
                 ))}
                 {sections.length === 0 && (
-                  <span className="text-sm text-gray-400">Belum ada section</span>
+                  <span className="text-sm text-gray-400">
+                    Belum ada section
+                  </span>
                 )}
               </div>
             </div>
@@ -165,7 +167,13 @@ export default function TestStatePage() {
               <Button
                 onClick={() => {
                   setSections([
-                    { id: "1", type: "hero", enabled: true, order: 0, config: {} },
+                    {
+                      id: "1",
+                      type: "hero",
+                      enabled: true,
+                      order: 0,
+                      config: {},
+                    },
                     {
                       id: "2",
                       type: "countdown",
@@ -180,8 +188,8 @@ export default function TestStatePage() {
                       order: 2,
                       config: {},
                     },
-                  ])
-                  toast.success("Sections di-set!")
+                  ]);
+                  toast.success("Sections di-set!");
                 }}
               >
                 Set Sections (Mock)
@@ -209,5 +217,5 @@ export default function TestStatePage() {
         </Card>
       </section>
     </div>
-  )
+  );
 }

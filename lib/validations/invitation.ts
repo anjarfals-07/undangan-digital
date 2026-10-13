@@ -1,5 +1,5 @@
 // lib/validations/invitation.ts
-import { z } from "zod"
+import { z } from "zod";
 
 export const invitationContentSchema = z.object({
   groomName: z
@@ -19,7 +19,7 @@ export const invitationContentSchema = z.object({
   quote: z.string().max(500, "Kutipan maksimal 500 karakter").optional(),
   opening: z.string().max(500, "Pembuka maksimal 500 karakter").optional(),
   language: z.string().min(2, "Bahasa wajib diisi"),
-})
+});
 
 export const createInvitationSchema = z.object({
   title: z
@@ -33,10 +33,10 @@ export const createInvitationSchema = z.object({
     .max(50, "Slug maksimal 50 karakter")
     .regex(
       /^[a-z0-9-]+$/,
-      "Slug hanya boleh huruf kecil, angka, dan tanda hubung"
+      "Slug hanya boleh huruf kecil, angka, dan tanda hubung",
     ),
   content: invitationContentSchema,
-})
+});
 
 export const updateInvitationSchema = z.object({
   title: z.string().min(3).max(100).optional(),
@@ -47,7 +47,7 @@ export const updateInvitationSchema = z.object({
     .regex(/^[a-z0-9-]+$/, "Slug hanya boleh huruf kecil, angka, dan -")
     .optional(),
   content: invitationContentSchema.partial().optional(),
-})
+});
 
-export type CreateInvitationInput = z.infer<typeof createInvitationSchema>
-export type UpdateInvitationInput = z.infer<typeof updateInvitationSchema>
+export type CreateInvitationInput = z.infer<typeof createInvitationSchema>;
+export type UpdateInvitationInput = z.infer<typeof updateInvitationSchema>;

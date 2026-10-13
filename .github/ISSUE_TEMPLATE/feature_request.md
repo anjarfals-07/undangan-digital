@@ -1,9 +1,9 @@
 ---
 name: ✨ Feature Request
 about: Usulkan fitur baru
-title: '[FEAT] '
+title: "[FEAT] "
 labels: enhancement
-assignees: ''
+assignees: ""
 ---
 
 ## ✨ Fitur yang Diinginkan

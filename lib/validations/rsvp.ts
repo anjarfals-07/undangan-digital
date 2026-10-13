@@ -1,5 +1,5 @@
 // lib/validations/rsvp.ts
-import { z } from "zod"
+import { z } from "zod";
 
 export const rsvpSchema = z.object({
   guestName: z
@@ -9,11 +9,8 @@ export const rsvpSchema = z.object({
   status: z.enum(["attending", "not-attending", "maybe"], {
     message: "Status kehadiran wajib dipilih",
   }),
-  guestCount: z
-    .number()
-    .min(1, "Minimal 1 orang")
-    .max(10, "Maksimal 10 orang"),
+  guestCount: z.number().min(1, "Minimal 1 orang").max(10, "Maksimal 10 orang"),
   message: z.string().max(500).optional(),
-})
+});
 
-export type RSVPInput = z.infer<typeof rsvpSchema>
+export type RSVPInput = z.infer<typeof rsvpSchema>;

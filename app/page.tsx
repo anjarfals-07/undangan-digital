@@ -10,8 +10,8 @@ export default function Home() {
           Digital untuk momen spesial
         </p>
         <p className="text-base text-gray-600 max-w-md mx-auto">
-          Buat undangan digital pernikahan, khitanan, dan ulang tahun
-          dengan template adat Nusantara
+          Buat undangan digital pernikahan, khitanan, dan ulang tahun dengan
+          template adat Nusantara
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
           <button className="px-6 py-3 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors font-medium">
@@ -23,5 +23,5 @@ export default function Home() {
         </div>
       </div>
     </main>
-  )
+  );
 }
