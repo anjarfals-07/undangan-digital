@@ -4,6 +4,7 @@ import { Inter } from "next/font/google"
 import "./globals.css"
 import { Toaster } from "@/components/ui/sonner"
 import { TooltipProvider } from "@/components/ui/tooltip"
+import { QueryProvider } from "@/providers/query-provider"
 import { siteConfig } from "@/config/site"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -42,10 +43,12 @@ export default function RootLayout({
   return (
     <html lang="id" suppressHydrationWarning>
       <body className={inter.className}>
-        <TooltipProvider>
-          {children}
-          <Toaster />
-        </TooltipProvider>
+        <QueryProvider>
+          <TooltipProvider>
+            {children}
+            <Toaster />
+          </TooltipProvider>
+        </QueryProvider>
       </body>
     </html>
   )
