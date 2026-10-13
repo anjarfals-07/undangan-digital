@@ -221,12 +221,12 @@ export default function TestUIPage() {
 
       <Separator />
 
-      {/* ==================== TOOLTIP ==================== */}
+           {/* ==================== TOOLTIP ==================== */}
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold">Tooltip</h2>
         <div className="flex gap-3">
           <Tooltip>
-            <TooltipTrigger>
+            <TooltipTrigger asChild>
               <Button variant="outline" size="icon">
                 <Heart className="h-4 w-4" />
               </Button>
@@ -237,7 +237,7 @@ export default function TestUIPage() {
           </Tooltip>
 
           <Tooltip>
-            <TooltipTrigger>
+            <TooltipTrigger asChild>
               <Button variant="outline" size="icon">
                 <Calendar className="h-4 w-4" />
               </Button>
@@ -248,7 +248,7 @@ export default function TestUIPage() {
           </Tooltip>
 
           <Tooltip>
-            <TooltipTrigger>
+            <TooltipTrigger asChild>
               <Button variant="outline" size="icon">
                 <MapPin className="h-4 w-4" />
               </Button>
@@ -259,7 +259,7 @@ export default function TestUIPage() {
           </Tooltip>
 
           <Tooltip>
-            <TooltipTrigger>
+            <TooltipTrigger asChild>
               <Button variant="outline" size="icon">
                 <Music className="h-4 w-4" />
               </Button>
@@ -270,7 +270,7 @@ export default function TestUIPage() {
           </Tooltip>
         </div>
       </section>
-
+      
       <Separator />
 
       {/* ==================== DIALOG ==================== */}
