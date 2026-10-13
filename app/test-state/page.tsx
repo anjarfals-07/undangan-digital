@@ -1,16 +1,16 @@
 // app/test-state/page.tsx
-"use client";
+"use client"
 
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import { Badge } from "@/components/ui/badge";
-import { useAuthStore } from "@/stores/auth-store";
-import { useEditorStore } from "@/stores/editor-store";
-import { toast } from "sonner";
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Separator } from "@/components/ui/separator"
+import { Badge } from "@/components/ui/badge"
+import { useAuthStore } from "@/stores/auth-store"
+import { useEditorStore } from "@/stores/editor-store"
+import { toast } from "sonner"
 
 export default function TestStatePage() {
-  const { user, isAuthenticated, setUser, logout } = useAuthStore();
+  const { user, isAuthenticated, setUser, logout } = useAuthStore()
   const {
     selectedSectionId,
     previewMode,
@@ -21,12 +21,12 @@ export default function TestStatePage() {
     setSections,
     setSelectedSection,
     reset,
-  } = useEditorStore();
+  } = useEditorStore()
 
   return (
-    <div className="container mx-auto p-8 space-y-8">
+    <div className="container mx-auto space-y-8 p-8">
       <div>
-        <h1 className="text-3xl font-bold mb-2">State Management Test</h1>
+        <h1 className="mb-2 text-3xl font-bold">State Management Test</h1>
         <p className="text-muted-foreground">
           Halaman untuk test Zustand & TanStack Query
         </p>
@@ -64,8 +64,8 @@ export default function TestStatePage() {
                     role: "user",
                     plan: "free",
                     createdAt: new Date(),
-                  });
-                  toast.success("User di-set!");
+                  })
+                  toast.success("User di-set!")
                 }}
               >
                 Login (Mock)
@@ -73,8 +73,8 @@ export default function TestStatePage() {
               <Button
                 variant="destructive"
                 onClick={() => {
-                  logout();
-                  toast.info("Logout!");
+                  logout()
+                  toast.info("Logout!")
                 }}
               >
                 Logout
@@ -96,10 +96,10 @@ export default function TestStatePage() {
           <CardContent className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <span className="text-sm text-muted-foreground">
+                <span className="text-muted-foreground text-sm">
                   Preview Mode:
                 </span>
-                <div className="flex gap-2 mt-1">
+                <div className="mt-1 flex gap-2">
                   <Button
                     size="sm"
                     variant={previewMode === "mobile" ? "default" : "outline"}
@@ -118,10 +118,10 @@ export default function TestStatePage() {
               </div>
 
               <div>
-                <span className="text-sm text-muted-foreground">
+                <span className="text-muted-foreground text-sm">
                   Editor Mode:
                 </span>
-                <div className="flex gap-2 mt-1">
+                <div className="mt-1 flex gap-2">
                   {(["simple", "advanced", "pro"] as const).map((mode) => (
                     <Button
                       key={mode}
@@ -139,10 +139,10 @@ export default function TestStatePage() {
             <Separator />
 
             <div>
-              <span className="text-sm text-muted-foreground">
+              <span className="text-muted-foreground text-sm">
                 Sections ({sections.length}):
               </span>
-              <div className="flex flex-wrap gap-2 mt-1">
+              <div className="mt-1 flex flex-wrap gap-2">
                 {sections.map((s) => (
                   <Badge
                     key={s.id}
@@ -188,8 +188,8 @@ export default function TestStatePage() {
                       order: 2,
                       config: {},
                     },
-                  ]);
-                  toast.success("Sections di-set!");
+                  ])
+                  toast.success("Sections di-set!")
                 }}
               >
                 Set Sections (Mock)
@@ -208,7 +208,7 @@ export default function TestStatePage() {
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold">Info</h2>
         <Card>
-          <CardContent className="p-6 space-y-2 text-sm">
+          <CardContent className="space-y-2 p-6 text-sm">
             <p>✅ Zustand auth-store — persist ke localStorage</p>
             <p>✅ Zustand editor-store — state editor sementara</p>
             <p>✅ TanStack Query — setup provider di layout</p>
@@ -217,5 +217,5 @@ export default function TestStatePage() {
         </Card>
       </section>
     </div>
-  );
+  )
 }

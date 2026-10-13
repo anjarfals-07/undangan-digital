@@ -1,9 +1,9 @@
 // app/test-ui/page.tsx
-"use client";
+"use client"
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 import {
   Card,
   CardContent,
@@ -11,16 +11,16 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Switch } from "@/components/ui/switch";
-import { Separator } from "@/components/ui/separator";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+} from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Switch } from "@/components/ui/switch"
+import { Separator } from "@/components/ui/separator"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
+} from "@/components/ui/tooltip"
 import {
   Dialog,
   DialogContent,
@@ -28,25 +28,25 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+} from "@/components/ui/dialog"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { Skeleton } from "@/components/ui/skeleton";
-import { toast } from "sonner";
-import { Heart, Calendar, MapPin, Music } from "lucide-react";
+} from "@/components/ui/select"
+import { Skeleton } from "@/components/ui/skeleton"
+import { toast } from "sonner"
+import { Heart, Calendar, MapPin, Music } from "lucide-react"
 
 export default function TestUIPage() {
   return (
-    <div className="container mx-auto p-8 space-y-8">
+    <div className="container mx-auto space-y-8 p-8">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold mb-2">UI Kit Test</h1>
+        <h1 className="mb-2 text-3xl font-bold">UI Kit Test</h1>
         <p className="text-muted-foreground">
           Halaman untuk test komponen shadcn/ui (Base UI)
         </p>
@@ -122,7 +122,7 @@ export default function TestUIPage() {
       {/* ==================== CARD ==================== */}
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold">Card</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           <Card>
             <CardHeader>
               <CardTitle>Template Jawa</CardTitle>
@@ -184,13 +184,13 @@ export default function TestUIPage() {
             <TabsTrigger value="sunda">Sunda</TabsTrigger>
             <TabsTrigger value="betawi">Betawi</TabsTrigger>
           </TabsList>
-          <TabsContent value="jawa" className="p-4 border rounded-lg">
+          <TabsContent value="jawa" className="rounded-lg border p-4">
             <p>Template Jawa: Parang, Kawung, Gunungan, Wayang</p>
           </TabsContent>
-          <TabsContent value="sunda" className="p-4 border rounded-lg">
+          <TabsContent value="sunda" className="rounded-lg border p-4">
             <p>Template Sunda: Mega Mendung, Kujang</p>
           </TabsContent>
-          <TabsContent value="betawi" className="p-4 border rounded-lg">
+          <TabsContent value="betawi" className="rounded-lg border p-4">
             <p>Template Betawi: Ondel-ondel, Batik Betawi</p>
           </TabsContent>
         </Tabs>
@@ -283,7 +283,7 @@ export default function TestUIPage() {
                 tidak bisa dibatalkan.
               </DialogDescription>
             </DialogHeader>
-            <div className="flex justify-end gap-3 mt-4">
+            <div className="mt-4 flex justify-end gap-3">
               <Button variant="outline">Batal</Button>
               <Button variant="destructive">Hapus</Button>
             </div>
@@ -296,13 +296,13 @@ export default function TestUIPage() {
       {/* ==================== SKELETON ==================== */}
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold">Skeleton (Loading)</h2>
-        <div className="space-y-2 max-w-md">
+        <div className="max-w-md space-y-2">
           <Skeleton className="h-4 w-full" />
           <Skeleton className="h-4 w-3/4" />
           <Skeleton className="h-4 w-1/2" />
           <div className="flex gap-2 pt-2">
             <Skeleton className="h-12 w-12 rounded-full" />
-            <div className="space-y-2 flex-1">
+            <div className="flex-1 space-y-2">
               <Skeleton className="h-4 w-full" />
               <Skeleton className="h-4 w-2/3" />
             </div>
@@ -384,5 +384,5 @@ export default function TestUIPage() {
         </div>
       </section>
     </div>
-  );
+  )
 }
