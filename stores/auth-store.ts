@@ -1,18 +1,18 @@
 // stores/auth-store.ts
-import { create } from "zustand";
-import { persist } from "zustand/middleware";
-import type { User } from "@/types";
+import { create } from "zustand"
+import { persist } from "zustand/middleware"
+import type { User } from "@/types"
 
 type AuthState = {
-  user: User | null;
-  isLoading: boolean;
-  isAuthenticated: boolean;
+  user: User | null
+  isLoading: boolean
+  isAuthenticated: boolean
 
   // Actions
-  setUser: (user: User | null) => void;
-  setLoading: (loading: boolean) => void;
-  logout: () => void;
-};
+  setUser: (user: User | null) => void
+  setLoading: (loading: boolean) => void
+  logout: () => void
+}
 
 export const useAuthStore = create<AuthState>()(
   persist(
@@ -41,6 +41,6 @@ export const useAuthStore = create<AuthState>()(
         user: state.user,
         isAuthenticated: state.isAuthenticated,
       }),
-    },
-  ),
-);
+    }
+  )
+)
