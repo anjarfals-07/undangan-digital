@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // TAMBAHKAN BARIS INI UNTUK MENGABAIKAN FOLDER PRISMA
+    "src/generated/**",
   ]),
 ]);
 
