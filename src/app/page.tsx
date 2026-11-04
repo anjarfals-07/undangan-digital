@@ -1,25 +1,28 @@
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+'use client'
+
+import { useEffect, useState } from 'react'
+import { createClient } from '@/lib/supabase/client'
 
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-gray-50 gap-6">
-      <h1 className="text-4xl font-bold text-blue-600">
-        Anjar Digital
-      </h1>
-      <p className="text-gray-600">
-        Aplikasi Undangan Digital (Next.js 16) berhasil diinisialisasi.
-      </p>
+  const [status, setStatus] = useState('Memeriksa koneksi...')
+  const supabase = createClient()
 
-      <Card className="w-[350px]">
-        <CardHeader>
-          <CardTitle>Test shadcn/ui</CardTitle>
-          <CardDescription>Jika kamu melihat ini, setup berhasil.</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <Button className="w-full">Klik Saya</Button>
-        </CardContent>
-      </Card>
+  useEffect(() => {
+    async function checkConnection() {
+      const { error } = await supabase.auth.getSession()
+      if (error) {
+        setStatus('Gagal terhubung: ' + error.message)
+      } else {
+        setStatus('✅ Supabase Auth Terhubung dengan Baik!')
+      }
+    }
+    checkConnection()
+  }, [supabase])
+
+  return (
+    <main className="flex min-h-screen flex-col items-center justify-center bg-gray-50 p-24">
+      <h1 className="mb-4 text-4xl font-bold text-blue-600">Anjar Digital</h1>
+      <p className="text-lg font-medium text-gray-700">{status}</p>
     </main>
   )
 }

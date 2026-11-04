@@ -15,8 +15,24 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
-model Test {
-  id        String   @id @default(cuid())
-  name      String
-  createdAt DateTime @default(now())
+// Enum untuk role user
+enum Role {
+  USER
+  ADMIN
+}
+
+// Model User utama
+model User {
+  id            String    @id @default(uuid())
+  email         String    @unique
+  name          String?
+  passwordHash  String?   // Untuk login manual (jika tidak pakai OAuth)
+  avatarUrl     String?
+  role          Role      @default(USER)
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  // Relasi ke undangan (nanti di Modul 4)
+  // invitations   Invitation[]
 }
