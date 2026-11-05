@@ -29,26 +29,30 @@ export async function updateSession(request: NextRequest) {
     },
   )
 
-  // JANGAN hapus kode ini. Ini berfungsi untuk me-refresh token login
-  // agar user tidak tiba-tiba ter-logout.
+  // Ambil data user saat ini
   const {
     data: { user },
   } = await supabase.auth.getUser()
 
-  // CONTOH PROTEKSI ROUTE: Jika user belum login dan mengakses /dashboard,
-  // alihkan ke halaman /login.
-  if (
-    !user &&
-    !request.nextUrl.pathname.startsWith('/login') &&
-    !request.nextUrl.pathname.startsWith('/register') &&
-    !request.nextUrl.pathname.startsWith('/auth')
-  ) {
-    // Hanya proteksi route tertentu (bisa diubah nanti)
-    if (request.nextUrl.pathname.startsWith('/dashboard')) {
-      const url = request.nextUrl.clone()
-      url.pathname = '/login'
-      return NextResponse.redirect(url)
-    }
+  // Daftar halaman yang HANYA BOLEH diakses jika BELUM login
+  const isAuthRoute =
+    request.nextUrl.pathname.startsWith('/login') ||
+    request.nextUrl.pathname.startsWith('/register') ||
+    request.nextUrl.pathname.startsWith('/forgot-password') ||
+    request.nextUrl.pathname.startsWith('/reset-password')
+
+  // 1. Jika user BELUM login dan mencoba akses halaman selain auth (misal: /dashboard)
+  if (!user && !isAuthRoute && request.nextUrl.pathname !== '/') {
+    const url = request.nextUrl.clone()
+    url.pathname = '/login'
+    return NextResponse.redirect(url)
+  }
+
+  // 2. Jika user SUDAH login tapi mencoba akses halaman login/register
+  if (user && isAuthRoute) {
+    const url = request.nextUrl.clone()
+    url.pathname = '/dashboard'
+    return NextResponse.redirect(url)
   }
 
   return supabaseResponse
